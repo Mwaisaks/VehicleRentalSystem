@@ -12,4 +12,26 @@ public class Vehicle {
         this.dailyRentalPrice = dailyRentalPrice;
         this.isAvailable = true;
     }
+
+    public int getId() {
+
+    }
+
+    public String getMake(){
+        return make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public double getDailyRentalPrice() {
+        return dailyRentalPrice;
+    }
+
+    public boolean isAvailable() {
+        3
+    }
+
+    public abstract void displayDetails(); ///abstract, okaayyyy
 }
