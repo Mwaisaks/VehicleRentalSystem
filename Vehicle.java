@@ -1,4 +1,4 @@
-public class Vehicle {
+public abstract class Vehicle {
     private int id;
     private String make;
     private String model;
@@ -14,7 +14,7 @@ public class Vehicle {
     }
 
     public int getId() {
-
+        return id;
     }
 
     public String getMake(){
@@ -30,8 +30,14 @@ public class Vehicle {
     }
 
     public boolean isAvailable() {
-        3
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 
     public abstract void displayDetails(); ///abstract, okaayyyy
 }
+
+//Teach me about abstract
