@@ -35,9 +35,48 @@ public class Main {
                     boolean rented = false;
 
                     for (Vehicle vehicle : fleet){
-                        if ()
+                        if (vehicle.getId() == idToRent && vehicle.isAvailable()){
+                            vehicle.setAvailable(false);
+                            System.out.println("You rented: " + vehicle.getMake() + " " + vehicle.getModel());
+                            rented = true;
+                            break;
+                        }
                     }
+                    if (!rented){
+                        System.out.println("Vehicle not available or invalid ID.");
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Enter Vehicle ID to return: ");
+                    int idToReturn = scanner.nextInt();
+                    System.out.println("Enter days rented: "); //the system should be able to count and display the
+                    //number of days when the user returns a vehicle
+                    int days = scanner.nextInt();
+                    boolean returned = false;
+
+                    for (Vehicle vehicle : fleet){
+                        if (vehicle.getId() == idToReturn && !vehicle.isAvailable()){
+                            vehicle.setAvailable(true);
+                            double totalCost = days * vehicle.getDailyRentalPrice();
+                            System.out.println("Vehicle returned. Total cost: $" + totalCost);
+                            returned = true;
+                            break;
+                        }
+                    }
+                    if (!returned){
+                        System.out.println("Vehicle not rented or invalid ID.");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Exiting the system. Goodbye!");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Try again.");
             }
-        }
+        }while (choice != 4);
+        scanner.close();
     }
 }
